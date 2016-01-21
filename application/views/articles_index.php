@@ -31,7 +31,7 @@
              </ul>
              </li>
              <li><?php echo anchor("Tag/index","标签","")?></li>
-             <li><?php echo anchor("","关于我","")?></li>
+             <li><?php echo anchor("admin/Login/index","关于我","")?></li>
              </ul>
           </div>
            <div class="col-sm-3" style="float:right;margin-top:5px">
@@ -53,9 +53,6 @@
       
     </div>
     
-    </div>
-
-  </div>
   <div class="row">
     <div class="col-sm-2" style="padding-top:20px">
     </div>
