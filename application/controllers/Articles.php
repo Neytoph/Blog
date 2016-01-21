@@ -73,11 +73,14 @@ class Articles extends CI_Controller {
 		$data_tmp =  $this->category_model->getAllCategory();
 		foreach ($data_tmp as $value) {
 			$category_id = $value['id'];
+			$data['category']["$category_id"]['id'] = $value['id'];
+			$data['category']["$category_id"]['category'] = $value['category'];
+			$data['category']["$category_id"]['category_order'] = $value['category_order'];
 			$data['all_category']["$category_id"]['id'] = $value['id'];
 			$data['all_category']["$category_id"]['category'] = $value['category'];
 			$data['all_category']["$category_id"]['category_order'] = $value['category_order'];
 		}
-		
+
 		$this->load->view('articles_article', $data);
 		$this->load->view('footer');
 

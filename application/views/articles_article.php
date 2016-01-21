@@ -74,9 +74,6 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
       
     </div>
     
-    </div>
-
-  </div>
   <div class="row">
     <div class="col-sm-2">
     </div>
@@ -87,7 +84,8 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
       <center>
         <p>
           <small class="text-muted">
-            分类于<?php echo anchor("/Articles/article/{$article[0]['id']}","PHP","")?>&nbsp&nbsp|&nbsp&nbsp2015年11月12日&nbsp&nbsp|&nbsp&nbsp阅读人次：27次
+            <?php $category_id = $article[0]['category'];$category_name = $category["$category_id"]['category'];?>
+                分类于&nbsp<?php echo anchor("Category/show/{$category_id}","$category_name","")?> &nbsp&nbsp|&nbsp&nbsp<?php echo date('Y年m月d日',strtotime($article[0]['time']));?>&nbsp&nbsp|&nbsp&nbsp阅读人次：27次
           </small>
         </p>
         <?php if(isset($article[0]['tag'])):?>

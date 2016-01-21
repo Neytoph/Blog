@@ -51,9 +51,6 @@
       
     </div>
     
-    </div>
-
-  </div>
   <div class="row">
     <div class="col-sm-2" style="padding-top:20px">
     </div>
