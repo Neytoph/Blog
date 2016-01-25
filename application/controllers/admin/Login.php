@@ -15,10 +15,10 @@ class Login extends CI_Controller {
 
 	  $this->form_validation->set_rules('username', 'Username', 'trim|callback_username_check');
 	  $this->form_validation->set_rules('password', 'Password', 'md5|callback_password_check');
-	  
+	  $this->form_validation->set_error_delimiters('<span id="helpBlock" class="help-block">', '</span>');
 	  if ($this->form_validation->run() == FALSE)
 	  {
-	   @$this->load->view('admin/login');
+	   $this->load->view('admin/login');
 	  }
 	  else
 	  {
