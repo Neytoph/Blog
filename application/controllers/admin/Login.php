@@ -6,18 +6,19 @@ class Login extends CI_Controller {
 	  parent::__construct ();
 	  $this->load->helper(array('form', 'url'));
 	  $this->load->library('session');
+    
 	 }
 	public  function index()
 	 {
-	  
+	  $this->load->helper('form');
 	  $this->load->library('form_validation');
-	   
-	  $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-	  $this->form_validation->set_rules('password', 'Password', 'trim|required|matches[passconf]|md5');
-	   
+
+	  $this->form_validation->set_rules('username', 'Username', 'trim|callback_username_check');
+	  $this->form_validation->set_rules('password', 'Password', 'md5|callback_password_check');
+	  
 	  if ($this->form_validation->run() == FALSE)
 	  {
-	   $this->load->view('admin/login');
+	   @$this->load->view('admin/login');
 	  }
 	  else
 	  {
@@ -26,55 +27,48 @@ class Login extends CI_Controller {
 	      'user' => $_POST ['username'],
 	      'pass' => md5($_POST ['password'])
 	    );
+          $this->load->view('admin/success');
+          
 	    $newdata = array(
 	      'username'  =>  $data ['user'] ,
 	      'userip'     => $_SERVER['REMOTE_ADDR'],
 	      'luptime'   =>time()
 	    );
-
-      
-	   $this->load->view('admin/success');
 	  }
 	 }
 	}
-	public function formsubmit() {
-  $this->load->library ( 'form_validation' );
-  $this->form_validation->set_rules ( 'username', 'Username', 'required' );
-  $this->form_validation->set_rules ( 'password', 'Password', 'required' );
-  if ($this->form_validation->run () == FALSE) {
-   $this->load->view ( 'login' );
-  } else {
-   if (isset ( $_POST ['submit'] ) && ! empty ( $_POST ['submit'] )) {
-    $data = array (
-      'user' => $_POST ['username'],
-      'pass' => md5($_POST ['password'])
-    );
-    $newdata = array(
-      'username'  =>  $data ['user'] ,
-      'userip'     => $_SERVER['REMOTE_ADDR'],
-      'luptime'   =>time()
-    );
-    if ($_POST ['submit'] == 'login') {
-     $query = $this->db->get_where ( 'uc_user', array (
-       'user' => $data ['user'] 
-     ), 1, 0 );
-     foreach ( $query->result () as $row ) {
-      $pass = $row->pass;
-     }
-     if ($pass == $data ['pass']) {
-      $this->session->set_userdata($newdata);
-      $this->load->view ( 'usercenter', $data );
-     }
-    } else if ($_POST ['submit'] == 'register') {
-     $this->session->set_userdata($newdata);
-     $this->db->insert ( 'uc_user', $data );
-     $this->load->view ( 'usercenter', $data );
-    } else {
-     $this->session->sess_destroy();
-     $this->load->view ( 'login' );
+	
+ public function username_check($str)
+    {
+        if ($str == '')
+        {
+            $this->form_validation->set_message('username_check', '用户名不能为空');
+            return FALSE;
+        }
+        elseif($str != 'admin'){
+            $this->form_validation->set_message('username_check', '用户不存在');
+            return FALSE;
+        }
+        else
+        {   
+            return TRUE;
+        }
     }
-   }
-  }
- }
 
+public function password_check($str)
+    {
+        if ($str == '')
+        {
+            $this->form_validation->set_message('password_check', '请输入密码');
+            return FALSE;
+        }
+        elseif($str != md5('admin')){
+            $this->form_validation->set_message('password_check', '密码错误');
+            return FALSE;
+        }
+        else
+        {   
+            return TRUE;
+        }
+    }
 }
