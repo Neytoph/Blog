@@ -22,16 +22,13 @@ class Category extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('category_model');
 		$data['data'] = $this->category_model->getAllArticles($id);
-		$data['category'] = $this->category_model->getCategory($id);
-		$data_tmp =  $this->category_model->getAllCategory();
-		foreach ($data_tmp as $value) {
-			$category_id = $value['id'];
-			$data['all_category']["$category_id"]['id'] = $value['id'];
-			$data['all_category']["$category_id"]['category'] = $value['category'];
-			$data['all_category']["$category_id"]['category_order'] = $value['category_order'];
-		}
+		$data['cur_category'] = $this->category_model->getCategory($id);
+		$data['all_category'] =  $this->category_model->getAllCategory();
+		//当前标题（首页，分类，标签，关于我）
+		$data['cur_title'] = array('','active','','');
 
 		$this->load->view('header');
+		$this->load->view('menu',$data);
 		$this->load->view('category_show', $data);
 		$this->load->view('footer');
 	}

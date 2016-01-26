@@ -15,26 +15,20 @@ class Login extends CI_Controller {
 
 	  $this->form_validation->set_rules('username', 'Username', 'trim|callback_username_check');
 	  $this->form_validation->set_rules('password', 'Password', 'md5|callback_password_check');
-	  $this->form_validation->set_error_delimiters('<span id="helpBlock" class="help-block">', '</span>');
+	  $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 	  if ($this->form_validation->run() == FALSE)
 	  {
 	   $this->load->view('admin/login');
 	  }
 	  else
 	  {
-	  	if (isset ( $_POST ['submit'] ) && ! empty ( $_POST ['submit'] )) {
-	    $data = array (
-	      'user' => $_POST ['username'],
-	      'pass' => md5($_POST ['password'])
-	    );
-          $this->load->view('admin/success');
-          
-	    $newdata = array(
-	      'username'  =>  $data ['user'] ,
-	      'userip'     => $_SERVER['REMOTE_ADDR'],
-	      'luptime'   =>time()
-	    );
-	  }
+	  	//当前标题（首页，文章，分类，标签，功能）
+		$data['cur_title'] = array('active','','','','');
+	    $this->load->view('header');
+	    $this->load->view('admin/menu',$data);
+	    $this->load->view('admin/index');
+        $this->load->view('footer');
+	  
 	 }
 	}
 	
@@ -59,7 +53,7 @@ public function password_check($str)
     {
         if ($str == '')
         {
-            $this->form_validation->set_message('password_check', '请输入密码');
+            $this->form_validation->set_message('password_check', '密码不能为空');
             return FALSE;
         }
         elseif($str != md5('admin')){

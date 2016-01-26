@@ -33,13 +33,12 @@ class Articles extends CI_Controller {
 		$data['data'] = $this->articles_model->getArticlesDuring($row, $config['per_page']);
 
 		$this->load->model('category_model');
-		$data_tmp =  $this->category_model->getAllCategory();
-		foreach ($data_tmp as $value) {
-			$category_id = $value['id'];
-			$data['category']["$category_id"]['id'] = $value['id'];
-			$data['category']["$category_id"]['category'] = $value['category'];
-			$data['category']["$category_id"]['category_order'] = $value['category_order'];
-		}
+		$data['all_category'] =  $this->category_model->getAllCategory();
+
+		$data['cur_title'] = array('active','','','');
+
+		$this->load->view('header');
+		$this->load->view('menu', $data);
 		$this->load->view('articles_index', $data);
 		$this->load->view('footer');
 	}
@@ -70,17 +69,11 @@ class Articles extends CI_Controller {
 		$data['button_type'] = $button_type;
 
 		$this->load->model('category_model');
-		$data_tmp =  $this->category_model->getAllCategory();
-		foreach ($data_tmp as $value) {
-			$category_id = $value['id'];
-			$data['category']["$category_id"]['id'] = $value['id'];
-			$data['category']["$category_id"]['category'] = $value['category'];
-			$data['category']["$category_id"]['category_order'] = $value['category_order'];
-			$data['all_category']["$category_id"]['id'] = $value['id'];
-			$data['all_category']["$category_id"]['category'] = $value['category'];
-			$data['all_category']["$category_id"]['category_order'] = $value['category_order'];
-		}
-
+		$data['all_category'] =  $this->category_model->getAllCategory();
+		//当前标题（首页，分类，标签，关于我）
+		$data['cur_title'] = array('active','','','');
+		$this->load->view('header');
+		$this->load->view('menu',$data);
 		$this->load->view('articles_article', $data);
 		$this->load->view('footer');
 

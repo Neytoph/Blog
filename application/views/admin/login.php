@@ -10,30 +10,32 @@
 </head>
 <body>
 <?php echo form_open('admin/login'); ?>
-<form class="form-horizontal">
-	<div class="form-group col-sm-12" style="margin-top:15%">
-	    
-	    <center><label  style="padding-top:5px" class="col-sm-1 col-sm-offset-4 control-label">用户名</label></center>
-	    <div class="col-sm-2">
-	      <input type="text" class="form-control" name="username" value="<?php echo set_value('username'); ?>" placeholder="Username">
-	    </div>
-	    <?php echo form_error('username'); ?>
-	</div>
-
-	<div class="form-group col-sm-12" style="margin-top:2%">
-		<center>	    <label style="padding-top:5px" class="col-sm-1 col-sm-offset-4 control-label">密码</label>
-</center>
-	    <div class="col-sm-2">
-	      <input type="password" class="form-control" name="password" value="<?php echo set_value('password'); ?>" placeholder="Password">
-	    </div>
-	    <?php echo form_error('password'); ?>
-	</div>
-  <div class="form-group">
-    <div class="col-sm-2 col-sm-offset-6" style="margin-top:1%">
-      <button type="submit" class="btn btn-default">Sign in</button>
+<div class="container" id="mymodal">
+  <div class="row myCenter">
+    <div class="col-xs-6 col-md-4 col-center-block" style="margin-top:10%;float: none;display: block;margin-left: auto;margin-right: auto;">
+    <div class="panel panel-default">
+   <div class="panel-body">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">请登录</h2>
+        <label for="username" class="sr-only">用户名</label>
+        <input type="text" id="username" class="form-control" name="username" value="<?php echo set_value('username'); ?>" placeholder="用户名" autofocus>
+        <p class="text-danger"><?php echo form_error('username'); ?></p>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" id="inputPassword" class="form-control" name="password" value="<?php echo set_value('password'); ?>" placeholder="密码">
+        <p class="text-danger"><?php echo form_error('password'); ?></p>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me" checked>
+            记住我 </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name='subimit' value="subimit">登录</button>
+      </form>
+   </div>
+</div>
+      
     </div>
   </div>
-</form>
-
+</div>
 </body>
+
 </html>

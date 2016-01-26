@@ -14,7 +14,13 @@ class Category_model extends CI_Model {
 	public function getAllCategory(){
 		$this->load->database();
 		$sql="select * from category order by category_order";
-		$data =$this->db->query($sql)->result_array();
+		$data_tmp =$this->db->query($sql)->result_array();
+		foreach ($data_tmp as $value) {
+			$category_id = $value['id'];
+			$data["$category_id"]['id'] = $value['id'];
+			$data["$category_id"]['category'] = $value['category'];
+			$data["$category_id"]['category_order'] = $value['category_order'];
+		}
 		return $data;
 	}
 
