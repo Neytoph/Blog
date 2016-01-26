@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
-   <link rel="stylesheet" href="<?php echo base_url('/public/css/github-markdown.css')?>">
-   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-   <style>
-    .markdown-body {
-        box-sizing: border-box;
-        min-width: 200px;
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 45px;
-    }
-   </style>
-</head>
-<body>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-1">
@@ -29,6 +11,18 @@
     </div>     
   </div>
 </div>
-
+<script>
+ function centerModals(){
+    $('.modal').each(function(i){
+        var $clone = $(this).clone().css('display', 'block').appendTo('body');    var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+        top = top > 0 ? top : 0;
+        $clone.remove();
+        $(this).find('.modal-content').css("margin-top", top);
+    });
+}
+$('.modal').on('show.bs.modal', centerModals);
+$(window).on('resize', centerModals);
+</script>
 </body>
+
 </html>
