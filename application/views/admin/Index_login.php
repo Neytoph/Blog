@@ -9,20 +9,19 @@
    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-<?php echo form_open('admin/login'); ?>
 <div class="container" id="mymodal">
   <div class="row myCenter">
     <div class="col-xs-6 col-md-4 col-center-block" style="margin-top:10%;float: none;display: block;margin-left: auto;margin-right: auto;">
     <div class="panel panel-default">
    <div class="panel-body">
-      <form class="form-signin">
+      <form class="form-signin" method="post" action="<?php echo site_url('admin/Index/login'); ?>">
         <h2 class="form-signin-heading">请登录</h2>
         <label for="username" class="sr-only">用户名</label>
-        <input type="text" id="username" class="form-control" name="username" value="<?php echo set_value('username'); ?>" placeholder="用户名" autofocus>
-        <p class="text-danger"><?php echo form_error('username'); ?></p>
+        <input type="text" id="username" class="form-control" name="username" placeholder="用户名" autofocus>
+        <p class="text-danger"><p class="text-danger"><?php echo $notexist; ?></p></p>
         <label for="inputPassword" class="sr-only">密码</label>
         <input type="password" id="inputPassword" class="form-control" name="password" value="<?php echo set_value('password'); ?>" placeholder="密码">
-        <p class="text-danger"><?php echo form_error('password'); ?></p>
+        <p class="text-danger"><?php echo $errorpwd; ?></p>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me" checked>

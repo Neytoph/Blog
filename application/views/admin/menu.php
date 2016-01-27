@@ -9,8 +9,8 @@
                 文章 <span class="caret"></span>
               </a>
              <ul class="dropdown-menu">
-              <li ><?php echo anchor("Category/show/{$value['id']}","撰写文章","")?></li>
-              <li ><?php echo anchor("Category/show/{$value['id']}","管理文章","")?></li>
+              <li ><?php echo anchor("Category/show/","撰写文章","")?></li>
+              <li ><?php echo anchor("Category/show/","管理文章","")?></li>
              </ul>
              </li>
 
@@ -19,8 +19,8 @@
                 分类 <span class="caret"></span>
               </a>
              <ul class="dropdown-menu">
-              <li ><?php echo anchor("Category/show/{$value['id']}","创建分类","")?></li>
-              <li ><?php echo anchor("Category/show/{$value['id']}","管理分类","")?></li>
+              <li ><?php echo anchor("Category/show/","创建分类","")?></li>
+              <li ><?php echo anchor("Category/show/","管理分类","")?></li>
              </ul>
              </li>
 
@@ -29,8 +29,8 @@
                 标签 <span class="caret"></span>
               </a>
              <ul class="dropdown-menu">
-              <li ><?php echo anchor("Category/show/{$value['id']}","创建标签","")?></li>
-              <li ><?php echo anchor("Category/show/{$value['id']}","管理标签","")?></li>
+              <li ><?php echo anchor("Category/show/","创建标签","")?></li>
+              <li ><?php echo anchor("Category/show/","管理标签","")?></li>
              </ul>
              </li>
 
@@ -39,11 +39,11 @@
                 功能 <span class="caret"></span>
               </a>
              <ul class="dropdown-menu">
-              <li ><?php echo anchor("Category/show/{$value['id']}","备份","")?></li>
+              <li ><?php echo anchor("Category/show/","备份","")?></li>
              </ul>
              </li>
              
-             <?php echo anchor("admin/Login/index",'<button type="button" class="btn btn-default hidden-xs btn-sm" style="float:right;margin-top:5px">
+             <?php echo anchor("admin/Index/logout",'<button type="button" class="btn btn-default hidden-xs btn-sm" style="float:right;margin-top:5px">
                 <span class="glyphicon glyphicon-off"> </span>
               </button>',"")?>
              </ul>
