@@ -9,7 +9,7 @@
    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-<?php echo form_open('admin/login'); ?>
+<?php echo form_open('admin/Index/login'); ?>
 <div class="container" id="mymodal">
   <div class="row myCenter">
     <div class="col-xs-6 col-md-4 col-center-block" style="margin-top:10%;float: none;display: block;margin-left: auto;margin-right: auto;">

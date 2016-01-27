@@ -43,9 +43,9 @@
              </ul>
              </li>
              
-             <?php echo anchor("admin/Login/index",'<button type="button" class="btn btn-default hidden-xs btn-sm" style="float:right;margin-top:5px">
+             <button type="button" class="btn btn-default btn-sm hidden-xs" data-toggle="modal" data-target="#myModal" style="float:right;margin-top:5px">
                 <span class="glyphicon glyphicon-off"> </span>
-              </button>',"")?>
+              </button>'
              </ul>
 
           </div>
@@ -58,4 +58,22 @@
       </div>
       
     </div>
-    
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width:400px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">嘿</h4>
+      </div>
+      <div class="modal-body text-center">
+        不再码点了？
+      </div>
+      <div class="modal-footer">
+        <?php echo anchor('admin/Index/logout','<button type="button" class="btn btn-primary">是的，再见！</button>')?>
+        <button type="button" class="btn btn-default" data-dismiss="modal">考虑下咯</button>
+      </div>
+    </div>
+  </div>
+</div>

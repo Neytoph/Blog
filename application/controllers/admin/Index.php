@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Login extends CI_Controller {
+class Index extends Controller {
 
 	 public function __construct() {
 	  parent::__construct ();
@@ -8,7 +8,14 @@ class Login extends CI_Controller {
 	  $this->load->library('session');
     
 	 }
-	public  function index()
+     public function index(){
+        $data['cur_title'] = array('active','','','','');
+        $this->load->view('header');
+        $this->load->view('admin/menu',$data);
+        $this->load->view('admin/index');
+        $this->load->view('footer');
+     }
+	 public  function login()
 	 {
 	  $this->load->helper('form');
 	  $this->load->library('form_validation');
@@ -18,21 +25,35 @@ class Login extends CI_Controller {
 	  $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
 	  if ($this->form_validation->run() == FALSE)
 	  {
-	   $this->load->view('admin/login');
+	   $this->load->view('admin/index_login');
 	  }
 	  else
 	  {
+        if ($this->input->post() != false){
+        $username = trim($this->input->post('username'));
+        $password = trim($this->input->post('password'));
+        }
 	  	//当前标题（首页，文章，分类，标签，功能）
-		$data['cur_title'] = array('active','','','','');
-	    $this->load->view('header');
-	    $this->load->view('admin/menu',$data);
-	    $this->load->view('admin/index');
-        $this->load->view('footer');
+		$userdata= array(
+            'username' => $username,
+            'passowrd' => $passowrd
+            );
+
+        $this->session->set_userdata($userdata);
+        redirect('admin/Index/index');
 	  
 	 }
+
 	}
-	
- public function username_check($str)
+
+
+	public function logout(){
+        session_destroy();
+        redirect(site_url('Articles/index'));
+    }
+
+
+    public function username_check($str)
     {
         if ($str == '')
         {
