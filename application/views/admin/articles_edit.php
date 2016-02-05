@@ -10,6 +10,10 @@
         <label for="content">内容</label>
         <textarea class="form-control" rows="15" placeholder="请输入内容" value="<?php if(isset($article['0']['content'])) echo $article['0']['content']?>"></textarea>
       </div>
+      <center>
+        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal1">写完了！</button>
+      </center>
+
     </div>
 
     <div class="col-sm-2">
@@ -35,6 +39,27 @@
     </div>
     
   </form>
+
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document" style="width:400px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">嘿</h4>
+      </div>
+      <div class="modal-body text-center">
+        搞定了？
+      </div>
+      <div class="modal-footer">
+        <?php echo anchor('admin/Index/logout','<button type="button" class="btn btn-primary">赶紧提交！</button>')?>
+        <button type="button" class="btn btn-default" data-dismiss="modal">我再想想</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script type="text/javascript" src="<?php echo base_url('/public/js/bootstrap-datetimepicker.js')?>"></script>
 <script type="text/javascript">
   $(".form_datetime").datetimepicker({
@@ -42,5 +67,6 @@
     autoclose:true,
     todayHighlight: true,
   });
+
 </script> 
 
