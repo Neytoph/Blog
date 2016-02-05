@@ -1,3 +1,4 @@
+<div class="container">
 <center>
 	<div >
 <h1 class="text-center">
@@ -6,3 +7,4 @@
 </div>
 
 </center>
+</div>

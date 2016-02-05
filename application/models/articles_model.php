@@ -22,7 +22,7 @@ class Articles_model extends CI_Model {
 	public function getArticle($id){
 		$this->load->database();
 		$sql="select * from articles where id={$id}";
-		$data['article']=$this->db->query($sql)->result_array();
+		$data =$this->db->query($sql)->result_array();
 		return $data;
 	}
 	public function getArticlesDuring($offset,$row){

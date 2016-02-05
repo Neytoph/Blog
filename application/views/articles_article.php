@@ -13,9 +13,7 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
 ?>
 
   <div class="row">
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 col-sm-offset-2">
       <h1 class="text-center">
         <?php echo $article[0]['title'];?>
       </h1>
