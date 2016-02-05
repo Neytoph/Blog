@@ -46,7 +46,7 @@ class Articles extends CI_Controller {
 	{	
 		$this->load->helper('url');
 		$this->load->model('articles_model');
-		$data_tmp = $this->articles_model->getArticle($id);
+		$data_tmp['articles'] = $this->articles_model->getArticle($id);
 		foreach ($data_tmp as $key => $value) {
 			foreach ($value as $value1) {
 				$data['article']['0']['id'] = $value1['id'];

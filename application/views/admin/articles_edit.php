@@ -11,7 +11,7 @@
         <textarea class="form-control" rows="15" placeholder="请输入内容" value="<?php if(isset($article['0']['content'])) echo $article['0']['content']?>"></textarea>
       </div>
       <center>
-        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal1">写完了！</button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">写完了！</button>
       </center>
 
     </div>
