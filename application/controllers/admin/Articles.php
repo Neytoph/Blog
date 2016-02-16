@@ -36,14 +36,55 @@ class Articles extends Controller {
             $data['article'] = $this->articles_model->getArticle($id);     
             
         }
+
         $this->load->view('header');
         $this->load->view('admin/menu', $data);
         $this->load->view('admin/articles_edit', $data);
         $this->load->view('footer');
-	  
+        
 	}
 
+    public  function update(){
+        $this->load->database();
 
+        $data['cur_title'] = array('','active','','','');
+
+
+        $data['data'] = array(
+                'id' => $_POST['id'],
+                'title' => $_POST['title'],
+                'content' => $_POST['content'],
+                'published_at' => $_POST['published_at'],
+                'category' => $_POST['category'],
+                'tag' => $_POST['tag'],                
+            );
+
+        if($data['data']['id'] != 0)
+        {
+            $this->db->where('id', $data['data']['id']);
+            $this->db->replace('articles', $data['data']);
+        }
+        else
+        {
+
+            $this->db->insert('articles', $data['data']);
+        }
+
+        redirect('/admin/articles/index');
+      
+    }
+
+    public  function delete($id){
+        $this->load->database();
+
+        $data['cur_title'] = array('','active','','','');
+
+        $this->db->where('id', $id);
+        $this->db->delete('articles');
+
+        redirect('/admin/articles/index');
+
+    }
     private function getPaginationConfig(){
         $this->load->database();
         $this->load->helper('url');

@@ -13,10 +13,31 @@
                <th class="text-center col-sm-1"><?php echo $value['id']?></th>
                <td class="col-sm-5"><?php echo $value['title']?></td>
                <td class="text-center col-sm-2">
-                  <?php echo anchor("admin/Articles/edit/{$value['id']}",'<span class="glyphicon glyphicon-pencil">编辑</span>',"")?>
-                  <?php echo anchor("admin/Articles/delete/{$value['id']}",'<span class="glyphicon glyphicon-remove">删除</span>',"")?>        
+                  
+                <?php echo anchor("admin/Articles/edit/{$value['id']}",'<button type="button" class="btn btn-default btn-sm hidden-xs"><span class="glyphicon glyphicon-pencil">编辑</span></button>',"")?>
+                  <a>
+                <button type="button" class="btn btn-default btn-sm hidden-xs" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
+  
                </td>
             </tr>
+            <!-- Modal -->
+            <div class="modal fade" id='myModal-<?php echo $value['id']?>' tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document" style="width:400px">
+                <div class="modal-content">
+                  <div class="modal-header">
+                  </div>
+                  <div class="modal-body text-center">
+                   确定删除文章【<?php echo $value['title']?>】?
+                  </div>
+                  <div class="modal-footer">
+
+                    <a href="<?php echo site_url("admin/Articles/delete/{$value['id']}")?>"><button type="button" class="btn btn-default">确定</button></a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">考虑下咯</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
          <?php endforeach ?>
       </tbody>
    </table>
@@ -26,3 +47,4 @@
         </ul>
       </center>
 </div>
+
