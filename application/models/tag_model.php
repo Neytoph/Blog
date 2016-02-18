@@ -13,7 +13,7 @@ class Tag_model extends CI_Model {
 	public function getAllTags(){
 		$this->load->database();
 		$sql="select * from tag";
-		$data['data']=$this->db->query($sql)->result_array();
+		$data=$this->db->query($sql)->result_array();
 		return $data;
 	}
 	public function getTagInfo(){
@@ -28,4 +28,16 @@ class Tag_model extends CI_Model {
 		$data['data'] = $this->db->query($sql)->result_array();
 		return $data;
 	}
+	public function getTagById($id){
+		$this->load->database();
+		$sql="select b.tag_name from article_tag as a join tag as b where a.tag_id = b.id and a.article_id = {$id}";
+		$data = $this->db->query($sql)->result_array();
+		return $data;
+	}
+	public function getTagidOfArticle($article_id){
+        $this->load->database();
+        $sql="select a.tag_id from article_tag as a join tag as b where a.tag_id = b.id and a.article_id = {$article_id}";
+        $data = $this->db->query($sql)->result_array();
+        return $data;
+    }
 }

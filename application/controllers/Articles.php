@@ -57,7 +57,7 @@ class Articles extends CI_Controller {
 					$data['article']['0']['tag'] = explode(',', $value1['tag']);
 				}
 				
-				$data['article']['0']['time'] = $value1['time'];
+				$data['article']['0']['published_at'] = $value1['published_at'];
 			}
 		}
 

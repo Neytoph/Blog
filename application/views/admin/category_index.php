@@ -3,19 +3,25 @@
       <thead >
          <tr>
             <th class="text-center">#</th>
-            <th>文章</th>
+            <th class="text-center">分类</th>
             <th class="text-center">操作</th>
          </tr>
+
       </thead>
       <tbody>
+         <tr>
+            <form role="form" method="post" action="<?php echo site_url('admin/Category/add')?>">
+            <th class="text-center">#</th>
+            <td class="text-center"><center><input type="text" class="form-control" id="name" name="category" placeholder="请输入分类" style="width: 100px;"></center></td>
+            <td class="text-center"><button type="submit" class="btn btn-success btn-md"><span class="glyphicon glyphicon glyphicon-plus">添加分类</span></button></td>
+            </form>
+         </tr>
          <?php foreach ($data as $key => $value): ?>
             <tr>
                <th class="text-center col-sm-1"><?php echo $value['id']?></th>
-               <td class="col-sm-5"><?php echo $value['title']?></td>
+               <td class="text-center col-sm-5"><?php echo $value['category']?></td>
                <td class="text-center col-sm-2">    
-                <?php echo anchor("admin/Articles/edit/{$value['id']}",'<button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil">编辑</span></button>',"")?>
-                  <a>
-                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
+                <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
   
                </td>
             </tr>
@@ -26,11 +32,11 @@
                   <div class="modal-header">
                   </div>
                   <div class="modal-body text-center">
-                   确定删除文章<p>【<?php echo $value['title']?>】?</p>
+                   确定删除分类<p>【<?php echo $value['category']?>】?</p>
                   </div>
                   <div class="modal-footer">
 
-                    <a href="<?php echo site_url("admin/Articles/delete/{$value['id']}")?>"><button type="button" class="btn btn-default">确定</button></a>
+                    <a href="<?php echo site_url("admin/Category/delete/{$value['id']}")?>"><button type="button" class="btn btn-default">确定</button></a>
                     <button type="button" class="btn btn-default" data-dismiss="modal">考虑下咯</button>
                   </div>
                 </div>

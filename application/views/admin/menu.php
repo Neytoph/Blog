@@ -13,15 +13,7 @@
               <li ><?php echo anchor("admin/Articles/index","管理文章","")?></li>
              </ul>
              </li>             
-             <li class="dropdown <?php echo $cur_title[2];?>">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                分类 <span class="caret"></span>
-              </a>
-             <ul class="dropdown-menu">
-              <li ><?php echo anchor("Category/show/{$value['id']}","创建分类","")?></li>
-              <li ><?php echo anchor("Category/show/{$value['id']}","管理分类","")?></li>
-             </ul>
-             </li>
+             <li class="<?php echo $cur_title[2];?>"><?php echo anchor("admin/Category/index","分类","")?>
 
              <li class="dropdown <?php echo $cur_title[3];?>">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -41,8 +33,8 @@
               <li ><?php echo anchor("Category/show/{$value['id']}","备份","")?></li>
              </ul>
              </li>
-             
-             <button type="button" class="btn btn-default btn-sm hidden-xs" data-toggle="modal" data-target="#myModal" style="float:right;margin-top:5px">
+             <?php echo anchor("Articles/index","返回首页","")?>
+             <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" style="float:right;margin-top:5px">
                 <span class="glyphicon glyphicon-off"> </span>
               </button>
              </ul>

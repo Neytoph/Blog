@@ -37,4 +37,10 @@ class Category_model extends CI_Model {
 		$data =$this->db->query($sql)->result_array();
 		return $data;
 	}
+	public function getCategoryDuring($offset,$row){
+		$this->load->database();
+		$sql="select * from category order by id DESC limit {$offset},{$row}";
+		$data = $this->db->query($sql)->result_array();
+		return $data;
+	}
 }

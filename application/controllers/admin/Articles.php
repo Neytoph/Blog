@@ -15,9 +15,6 @@ class Articles extends Controller {
         $this->load->model('articles_model');
         $data['data'] = $this->articles_model->getArticlesDuring($row, $config['per_page']);
 
-        $this->load->model('category_model');
-        $data['all_category'] =  $this->category_model->getAllCategory();
-
         $data['cur_title'] = array('','active','','','');
         $this->load->view('header');
         $this->load->view('admin/menu', $data);
@@ -58,6 +55,46 @@ class Articles extends Controller {
                 'category' => $_POST['category'],
                 'tag' => $_POST['tag'],                
             );
+        //将标签录入articles_tag关系表
+        //获取改表中该文章相关的标签
+        $this->load->model('tag_model');
+        $tmp =  $this->tag_model->getTagById($data['data']['id']);
+        $article_tag = array();
+        foreach ($tmp as $key => $value) {
+            array_push($article_tag,$value['tag_name']);
+        }
+        //输入标签内容
+        $tag_arr = explode(',', $data['data']['tag']);
+        //比较输入内容与原文章标签的不同
+        $diff = array_merge(array_diff($article_tag, $tag_arr),array_diff($tag_arr, $article_tag));
+
+        //获取所有标签信息
+        $all_tags =  $this->tag_model->getAllTags();
+        foreach ($all_tags as $key => $value) {
+            $all_tags_name[] = $value['tag_name'];
+        }
+
+        //判断用户输入的标签是否存在，如果不存在，创建该标签，并随机选择一个颜色
+        $random_color = array('primary','success','info','warning','danger');
+        foreach ($tag_arr as $key => $value) {
+            if(!in_array($value, $all_tags_name)){
+                $color = array_rand($random_color);
+                $sql = "INSERT INTO `tag`(`tag_name`, `tag_button_type`) VALUES ('$value',"."'$random_color[$color]'".")";
+                $this->db->query($sql);
+            }
+        }
+        //判断标签与文章的关系，进行删除或者添加关系的操作
+        $tag_str = '('.$data['data']['id'].')';
+        foreach ($diff as $key => $value) {
+            if (in_array($value, $article_tag)){
+                $delete_link = $this->db->query("select a.article_id,a.tag_id FROM `article_tag` as a join `articles` as b on a.article_id=b.id join `tag` as c on c.id=a.tag_id WHERE b.id ='{$data['data']['id']}' AND c.tag_name= '{$value}'")->result_array();
+                $this->db->query("delete FROM `article_tag` WHERE article_id ='{$delete_link['0']['article_id']}' AND tag_id= '{$delete_link['0']['tag_id']}'");
+            }
+            if(!in_array($value, $article_tag)){
+                $insert_link = $this->db->query("select b.id as article_id,c.id as tag_id FROM `articles` as b join `tag` as c WHERE b.id ='{$data['data']['id']}' AND c.tag_name= '{$value}'")->result_array();
+                $this->db->query("INSERT INTO `article_tag`(`article_id`, `tag_id`) VALUES ({$insert_link['0']['article_id']},{$insert_link['0']['tag_id']})");
+            }
+        }
 
         if($data['data']['id'] != 0)
         {

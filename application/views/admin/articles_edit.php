@@ -5,11 +5,11 @@
         <label for="name">标题</label>
         <input class="sr-only" name="id" value="<?php if(isset($article['0']['id'])) echo $article['0']['id']?>">
         <input type="text" class="form-control" id="name" name="title"
-           placeholder="请输入标题" value="<?php if(isset($article['0']['title'])) echo $article['0']['title']?>">
+           placeholder="请输入标题" value="<?php if(isset($article['0']['title'])) echo $article['0']['title'];?>">
       </div>
       <div class="form-group">
         <label for="content">内容</label>
-        <textarea class="form-control" rows="15" name="content" placeholder="请输入内容" value="<?php if(isset($article['0']['content'])) echo $article['0']['content']?>"></textarea>
+        <textarea class="form-control" rows="15" name="content" placeholder="请输入内容"><?php if(isset($article['0']['content'])) echo htmlspecialchars($article['0']['content']);?></textarea>
       </div>
 
 

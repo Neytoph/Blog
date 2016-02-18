@@ -13,7 +13,7 @@
               <small class="text-muted">
 
                 <?php $category_id = $value['category'];$category_name = $all_category["$category_id"]['category'];?>
-                分类于&nbsp<?php echo anchor("Category/show/{$category_id}","$category_name","")?> &nbsp&nbsp|&nbsp&nbsp<?php echo date('Y年m月d日',strtotime($value['time']));?>&nbsp&nbsp|&nbsp&nbsp阅读人次：27次
+                分类于&nbsp<?php echo anchor("Category/show/{$category_id}","$category_name","")?> &nbsp&nbsp|&nbsp&nbsp<?php echo date('Y年m月d日',strtotime($value['published_at']));?>&nbsp&nbsp|&nbsp&nbsp阅读人次：27次
               </small>
             </p>
           </center>
