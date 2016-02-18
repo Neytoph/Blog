@@ -40,4 +40,10 @@ class Tag_model extends CI_Model {
         $data = $this->db->query($sql)->result_array();
         return $data;
     }
+    public function getTagDuring($offset,$row){
+		$this->load->database();
+		$sql="select * from tag order by id DESC limit {$offset},{$row}";
+		$data = $this->db->query($sql)->result_array();
+		return $data;
+	}
 }

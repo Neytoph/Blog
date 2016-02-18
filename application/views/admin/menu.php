@@ -14,17 +14,7 @@
              </ul>
              </li>             
              <li class="<?php echo $cur_title[2];?>"><?php echo anchor("admin/Category/index","分类","")?>
-
-             <li class="dropdown <?php echo $cur_title[3];?>">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                标签 <span class="caret"></span>
-              </a>
-             <ul class="dropdown-menu">
-              <li ><?php echo anchor("Category/show/{$value['id']}","创建标签","")?></li>
-              <li ><?php echo anchor("Category/show/{$value['id']}","管理标签","")?></li>
-             </ul>
-             </li>
-
+             <li class="<?php echo $cur_title[3];?>"><?php echo anchor("admin/Tag/index","标签","")?>
               <li class="dropdown <?php echo $cur_title[4];?>">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 功能 <span class="caret"></span>

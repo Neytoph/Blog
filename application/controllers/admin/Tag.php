@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Category extends Controller {
+class Tag extends Controller {
     
     public function index(){
         //加载分页类库
@@ -13,27 +13,26 @@ class Category extends Controller {
         $row = $this->uri->segment(4);
         $row = isset($row) ? $row : 0;
 
-        $this->load->model('category_model');
-        $data['data'] = $this->category_model->getCategoryDuring($row, $config['per_page']);
+        $this->load->model('tag_model');
+        $data['data'] = $this->tag_model->getTagDuring($row, $config['per_page']);
 
-        $data['cur_title'] = array('','','active','','');
+        $data['cur_title'] = array('','','','active','');
         $this->load->view('header');
         $this->load->view('admin/menu', $data);
-        $this->load->view('admin/category_index', $data);
+        $this->load->view('admin/tag_index', $data);
         $this->load->view('footer');
     }
 
     public  function add(){
         $this->load->database();
 
-        if ($_POST['category']!='') {
+        if ($_POST['tag_name']!='') {
             $data['data'] = array(
-                'category' => $_POST['category'],             
+                'tag_name' => $_POST['tag_name'],             
             );
-            $this->db->insert('category', $data['data']);
+            $this->db->insert('tag', $data['data']);
         }
-
-        redirect('/admin/category/index');
+        redirect('/admin/tag/index');
       
     }
 
@@ -41,17 +40,17 @@ class Category extends Controller {
         $this->load->database();
 
         $this->db->where('id', $id);
-        $this->db->delete('category');
+        $this->db->delete('tag');
 
-        redirect('/admin/category/index');
+        redirect('/admin/tag/index');
 
     }
     private function getPaginationConfig(){
         $this->load->database();
         $this->load->helper('url');
 
-        $config['base_url'] = site_url('admin/Category/index');
-        $config['total_rows'] = $this->db->count_all('category');
+        $config['base_url'] = site_url('admin/Tag/index');
+        $config['total_rows'] = $this->db->count_all('tag');
         $config['per_page'] = '5';
         $config['num_links'] = 3 ;
         $config['last_link'] = '末页';
