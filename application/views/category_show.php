@@ -1,5 +1,4 @@
 
-  <div class="row">
     <div class="col-sm-2" style="padding-top:20px">
     </div>
     <div class="col-sm-8" style="padding-top:20px">
@@ -15,5 +14,3 @@
           <hr style="solid">
         <?php endforeach ?>
     </div>
-  </div>
-</div>

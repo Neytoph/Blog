@@ -3,7 +3,7 @@
     <div class="col-sm-6  col-sm-offset-2">
       <div class="form-group">
         <label for="name">标题</label>
-        <input class="sr-only" name="id" value="<?php if(isset($article['0']['id'])) echo $article['0']['id']?>">
+        <input class="sr-only" name="id" value="<?php echo isset($article['0']['id'])?$article['0']['id']:0?>">
         <input type="text" class="form-control" id="name" name="title"
            placeholder="请输入标题" value="<?php if(isset($article['0']['title'])) echo $article['0']['title'];?>">
       </div>

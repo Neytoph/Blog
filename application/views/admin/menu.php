@@ -23,10 +23,12 @@
               <li ><?php echo anchor("Category/show/{$value['id']}","备份","")?></li>
              </ul>
              </li>
-             <?php echo anchor("Articles/index","返回首页","")?>
-             <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" style="float:right;margin-top:5px">
+             <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal" style="float:right;margin-top:5px;color:#1780C7">
                 <span class="glyphicon glyphicon-off"> </span>
               </button>
+              <?php echo anchor("Articles/index",'<button type="button" class="btn btn-default btn-md"style="float:right;margin-top:5px;color:#1780C7">
+                <span class="glyphicon glyphicon-home"></span>
+              </button>',"")?>
              </ul>
 
           </div>

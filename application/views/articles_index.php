@@ -1,5 +1,4 @@
 
-  <div class="row">
     <div class="col-sm-2" style="padding-top:20px">
     </div>
     <div class="col-sm-8" style="padding-top:20px">
@@ -17,7 +16,6 @@
               </small>
             </p>
           </center>
-          <p class="text-center" style="margin-top:20px"><?php echo $value['content']; ?></p>
           <center style="margin-bottom:50px;margin-top:20px">
             <a href="<?php echo site_url("/articles/article/{$value['id']}")?>">
               <button type="button" class="btn btn-success" >阅读全文</button>
@@ -32,4 +30,3 @@
         </ul>
       </center>
     </div>
-  </div>
