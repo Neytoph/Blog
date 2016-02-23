@@ -11,9 +11,8 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
 
 
 ?>
-
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+  <div class="col-sm-8 col-sm-offset-2" style="background-color: #FFF;margin-top:20px;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD;">
+    <div class="col-sm-12">
       <h1 class="text-center">
         <?php echo $article[0]['title'];?>
       </h1>
@@ -29,17 +28,11 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
             <?php echo anchor("/Tag/show/{$value}","<button type='button' class='btn btn-{$button_type["$value"]} btn-xs'>{$value}</button>","");?>
           <?php endforeach?>
         <?php endif?>
-      </center>
+        <hr>
+        </center>
+        <article class="markdown-body">
+          <?php echo $html; ?>
+        </article>
     </div>     
   </div>
-  <div class="row">
-    <div class="col-sm-1">
-    </div>
-    <div class="col-sm-10" style="padding-top:20px;">
-      <article class="markdown-body">
-        <?php echo $html; ?>
-      </article>
-    </div>
-  </div>
-</div>
 

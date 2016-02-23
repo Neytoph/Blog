@@ -21,4 +21,4 @@
     }
    </style>
 </head>
-<body>
+<body style="background-color: #EEEEEE">

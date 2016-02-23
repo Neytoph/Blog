@@ -35,7 +35,7 @@
         </div>
 
         <div class="row">
-          <hr>
+          <hr style="height:1px;border:none;border-top:1px dashed #CCCCCC;">
         </div>
 
       </div>
