@@ -20,7 +20,7 @@
                 功能 <span class="caret"></span>
               </a>
              <ul class="dropdown-menu">
-              <li ><?php echo anchor("Category/show/{$value['id']}","备份","")?></li>
+              <li ><?php echo anchor("admin/Others/output","备份","")?></li>
              </ul>
              </li>
              <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal" style="float:right;margin-top:5px;color:#1780C7">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="row">
-          <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #ddd, #bbb, #ddd);"">
+          <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #ddd, #bbb, #ddd);">
         </div>
 
       </div>

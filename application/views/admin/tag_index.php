@@ -19,10 +19,9 @@
          <?php foreach ($data as $key => $value): ?>
             <tr>
                <th class="text-center col-sm-1"><?php echo $value['id']?></th>
-               <td class="text-center col-sm-5"><?php echo $value['tag_name']?></td>
+               <td class="text-center col-sm-5"><button type='button' class='btn btn-<?php echo $value['tag_button_type']?> btn-xs'><?php echo $value['tag_name']?></button></td>
                <td class="text-center col-sm-2">    
-                <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
-  
+               <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
                </td>
             </tr>
             <!-- Modal -->

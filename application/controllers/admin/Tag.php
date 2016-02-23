@@ -15,7 +15,6 @@ class Tag extends Controller {
 
         $this->load->model('tag_model');
         $data['data'] = $this->tag_model->getTagDuring($row, $config['per_page']);
-
         $data['cur_title'] = array('','','','active','');
         $this->load->view('header');
         $this->load->view('admin/menu', $data);
@@ -25,10 +24,11 @@ class Tag extends Controller {
 
     public  function add(){
         $this->load->database();
-
+        $color_array=array("primary", "success", "info", "warning", "danger");
         if ($_POST['tag_name']!='') {
             $data['data'] = array(
-                'tag_name' => $_POST['tag_name'],             
+                'tag_name' => $_POST['tag_name'],
+                'tag_button_type' => $color_array[array_rand($color_array)]         
             );
             $this->db->insert('tag', $data['data']);
         }
@@ -51,7 +51,7 @@ class Tag extends Controller {
 
         $config['base_url'] = site_url('admin/Tag/index');
         $config['total_rows'] = $this->db->count_all('tag');
-        $config['per_page'] = '5';
+        $config['per_page'] = '10';
         $config['num_links'] = 3 ;
         $config['last_link'] = '末页';
         $config['first_link'] = '首页';

@@ -18,8 +18,8 @@
     <div class="col-sm-2">
       <div class="form-group">
           <label for="published_at">发布日期</label>
-          <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" name="published_at" value="<?php if(isset($article['0']['published_at'])) echo $article['0']['published_at']?>"/>
+          <div class='input-group date'>
+              <input type='text' class="form-control" name="published_at" id='datetimepicker1' value="<?php if(isset($article['0']['published_at'])) echo $article['0']['published_at']?>"/>
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-calendar"></span>
               </span>
@@ -50,6 +50,8 @@
     $(function () {
         $('#datetimepicker1').datetimepicker({
           format: 'YYYY-MM-DD HH:mm',
+          useStrict: true,
+          defaultDate: 'moment',
         });
     });
 </script>

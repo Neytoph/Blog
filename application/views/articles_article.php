@@ -20,7 +20,7 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
         <p>
           <small class="text-muted">
             <?php $category_id = $article[0]['category'];$category_name = $all_category["$category_id"]['category'];?>
-                分类于&nbsp<?php echo anchor("Category/show/{$category_id}","$category_name","")?> &nbsp&nbsp|&nbsp&nbsp<?php echo date('Y年m月d日',strtotime($article[0]['published_at']));?>&nbsp&nbsp|&nbsp&nbsp阅读人次：27次
+                分类于&nbsp<?php echo anchor("Category/show/{$category_id}","$category_name","")?> &nbsp&nbsp|&nbsp&nbsp<?php echo date('Y年m月d日',strtotime($article[0]['published_at']));?>&nbsp&nbsp|&nbsp&nbsp阅读人次：<?php echo $article[0]['pv'];?>次
           </small>
         </p>
         <?php if(isset($article[0]['tag'])):?>

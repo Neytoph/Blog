@@ -28,7 +28,6 @@ class Articles extends CI_Controller {
 
 		$row = $this->uri->segment(3);
 		$row = isset($row) ? $row : 0;
-
 		$this->load->model('articles_model');
 		$data['data'] = $this->articles_model->getArticlesDuring($row, $config['per_page']);
 
@@ -44,8 +43,22 @@ class Articles extends CI_Controller {
 	}
 	public function article($id)
 	{	
+
+		$this->load->database();
+		//统计文章访问数
+		$this->load->library('session');
+		$user_ip_name = 'user_ip_'.$id;
+		if(empty($_SESSION[$user_ip_name])){
+			$this->db->set('pv', 'pv+1', FALSE);
+			$this->db->where('id', $id);
+			$this->db->update('articles');
+			$user_ip=$_SERVER["REMOTE_ADDR"]; 
+			$user_ip = array($user_ip_name => $user_ip);
+			$this->session->set_userdata($user_ip);		
+		}
 		$this->load->helper('url');
 		$this->load->model('articles_model');
+
 		$data_tmp['articles'] = $this->articles_model->getArticle($id);
 		foreach ($data_tmp as $key => $value) {
 			foreach ($value as $value1) {
@@ -53,6 +66,7 @@ class Articles extends CI_Controller {
 				$data['article']['0']['title'] = $value1['title'];
 				$data['article']['0']['content'] = $value1['content'];
 				$data['article']['0']['category'] = $value1['category'];
+				$data['article']['0']['pv'] = $value1['pv'];
 				if ($value1['tag'] != ''){
 					$data['article']['0']['tag'] = explode(',', $value1['tag']);
 				}
@@ -60,14 +74,12 @@ class Articles extends CI_Controller {
 				$data['article']['0']['published_at'] = $value1['published_at'];
 			}
 		}
-
 		$tag_info = $this->articles_model->getTagsType();
 		foreach ($tag_info['button_type'] as $value) {
 			$tag_name = $value['tag_name'];
 			$button_type["$tag_name"] = $value['tag_button_type'];
 		}
 		$data['button_type'] = $button_type;
-
 		$this->load->model('category_model');
 		$data['all_category'] =  $this->category_model->getAllCategory();
 		//当前标题（首页，分类，标签，关于我）
