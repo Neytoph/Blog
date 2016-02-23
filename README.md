@@ -1,6 +1,6 @@
 # Blog
 
-### 基于[CI框架](http://codeigniter.org.cn)的个人博客系统~由neytoph完成
+> ### 基于[CI框架](http://codeigniter.org.cn)的个人博客系统~由neytoph完成
 ### 前端框架 ：[bootstrap](http://www.bootcss.com/)
 
 ### 目前的主要功能：
