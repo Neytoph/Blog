@@ -35,7 +35,7 @@
           
         </div>
         <div class="row">
-          <hr style="height:1px;border:none;border-top:1px dashed #CCCCCC;">
+          <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #ddd, #bbb, #ddd);">
         </div>
 
       </div>

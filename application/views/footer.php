@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-      <hr style="height:1px;border:none;border-top:1px dashed #CCCCCC;">
+      <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #ddd, #bbb, #ddd);">
       <h4 class="text-center" style="margin-bottom:50px">
         <small>power by neytoph</small>
       </h4>
