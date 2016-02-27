@@ -1,5 +1,5 @@
-<div class="col-sm-8  col-sm-offset-2">
-   <table class="table table-hover">
+<div class="col-sm-8  col-sm-offset-2 col-xs-10 col-xs-offset-1" style="background-color: #FFF;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD,-5px -5px 8px #DDDDDD;">
+   <table class="table table-hover" style="margin-top:20px;margin-bottom:-10px">
       <thead >
          <tr>
             <th class="text-center">#</th>
@@ -18,10 +18,11 @@
          </tr>
          <?php foreach ($data as $key => $value): ?>
             <tr>
-               <th class="text-center col-sm-1"><?php echo $value['id']?></th>
-               <td class="text-center col-sm-5"><button type='button' class='btn btn-<?php echo $value['tag_button_type']?> btn-xs'><?php echo $value['tag_name']?></button></td>
-               <td class="text-center col-sm-2">    
-               <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
+               <th class="text-center col-sm-1 col-xs-1"><?php echo $value['id']?></th>
+               <td class="text-center col-sm-5 col-xs-9"><?php echo anchor("admin/Tag/edit/{$value['id']}","<button type='button' class='btn btn-$value[tag_button_type] btn-md'>".$value["tag_name"]."</button>","")?></td>
+               <td class="text-center col-sm-2 col-xs-2">
+               <?php echo anchor("admin/Tag/edit/{$value['id']}",'<button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil">编辑</span></button>',"")?>
+               <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
                </td>
             </tr>
             <!-- Modal -->
@@ -35,7 +36,7 @@
                   </div>
                   <div class="modal-footer">
 
-                    <a href="<?php echo site_url("admin/Tag/delete/{$value['id']}")?>"><button type="button" class="btn btn-default">确定</button></a>
+                    <a href="<?php echo site_url("admin/Tag/check/{$value['id']}")?>"><button type="button" class="btn btn-default">确定</button></a>
                     <button type="button" class="btn btn-default" data-dismiss="modal">考虑下咯</button>
                   </div>
                 </div>

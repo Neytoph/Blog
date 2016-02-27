@@ -31,11 +31,11 @@ class Tag extends CI_Controller {
 				$button_size = 'btn-lg';
 			}
 			$data['data'][] =array(
+				'tag_id' => $value['tag_id'],
 				'tag_name' => $value['tag_name'],
 				'tag_size' => $button_size,
 				'tag_button_type' => $value['tag_button_type']
 				);
-
 		}
 
 		$this->load->model('category_model');
@@ -49,11 +49,12 @@ class Tag extends CI_Controller {
 		$this->load->view('tag_index', $data);
 		$this->load->view('footer');
 	}
-	public function show($tag_name){
+	public function show($tag_id){
 		$this->load->helper('url');
 		$this->load->model('articles_model');
-		$data = $this->articles_model->getArticlesTag($tag_name);
-		
+		$data['data'] = $this->articles_model->getArticlesTag($tag_id);
+		$this->load->model('tag_model');
+        $data['tag_name'] = $this->tag_model->getTagByTagid($tag_id);
 		$this->load->model('category_model');
 		$data['all_category'] =  $this->category_model->getAllCategory();
 		//当前标题（首页，分类，标签，关于我）

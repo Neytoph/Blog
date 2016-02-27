@@ -1,5 +1,6 @@
-<div class="col-sm-8  col-sm-offset-2">
-   <table class="table table-hover">
+
+<div class="col-sm-8  col-sm-offset-2 col-xs-10 col-xs-offset-1" style="background-color: #FFF;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD,-5px -5px 8px #DDDDDD;">
+   <table class="table table-hover" style="margin-top:20px;margin-bottom:-10px">
       <thead >
          <tr>
             <th class="text-center">#</th>
@@ -18,10 +19,10 @@
          </tr>
          <?php foreach ($data as $key => $value): ?>
             <tr>
-               <th class="text-center col-sm-1"><?php echo $value['id']?></th>
-               <td class="text-center col-sm-5"><?php echo $value['category']?></td>
-               <td class="text-center col-sm-2">    
-                <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
+               <th class="text-center col-sm-1 col-xs-1"><?php echo $value['id']?></th>
+               <td class="text-center col-sm-5 col-xs-9"><?php echo $value['category']?></td>
+               <td class="text-center col-sm-2 col-xs-2">    
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal-<?php echo $value['id']?>"><span class="glyphicon glyphicon-remove">删除</span></button></a>
   
                </td>
             </tr>
@@ -52,4 +53,3 @@
         </ul>
       </center>
 </div>
-

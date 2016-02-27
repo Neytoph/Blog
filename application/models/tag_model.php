@@ -28,6 +28,12 @@ class Tag_model extends CI_Model {
 		$data['data'] = $this->db->query($sql)->result_array();
 		return $data;
 	}
+	public function getTagByTagid($tag_id){
+		$this->load->database();
+		$sql="select * from tag  where id = {$tag_id}";
+		$data = $this->db->query($sql)->result_array();
+		return $data;
+	}
 	public function getTagById($id){
 		$this->load->database();
 		$sql="select b.tag_name from article_tag as a join tag as b where a.tag_id = b.id and a.article_id = {$id}";

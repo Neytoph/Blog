@@ -12,7 +12,7 @@
 <?php echo form_open('admin/Index/login'); ?>
 <div class="container" id="mymodal">
   <div class="row myCenter">
-    <div class="col-xs-6 col-md-4 col-center-block" style="margin-top:10%;float: none;display: block;margin-left: auto;margin-right: auto;">
+    <div class="col-sm-4 col-center-block" style="margin-top:10%;float: none;display: block;margin-left: auto;margin-right: auto;">
     <div class="panel panel-default">
    <div class="panel-body">
       <form class="form-signin">

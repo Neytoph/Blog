@@ -1,8 +1,8 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-      <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #ddd, #bbb, #ddd);">
+    <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+      <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #CDE6ED, #000, #CDE6ED);">
       <h4 class="text-center" style="margin-bottom:50px">
         <small>power by neytoph</small>
       </h4>
