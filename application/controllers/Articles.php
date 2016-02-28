@@ -60,6 +60,7 @@ class Articles extends CI_Controller {
 		$this->load->model('articles_model');
 
 		$data_tmp['articles'] = $this->articles_model->getArticle($id);
+		$tag_info = $this->articles_model->getTagsType();
 		foreach ($data_tmp as $key => $value) {
 			foreach ($value as $value1) {
 				$data['article']['0']['id'] = $value1['id'];
@@ -68,13 +69,22 @@ class Articles extends CI_Controller {
 				$data['article']['0']['category'] = $value1['category'];
 				$data['article']['0']['pv'] = $value1['pv'];
 				if ($value1['tag'] != ''){
-					$data['article']['0']['tag'] = explode(',', $value1['tag']);
+
+					$tag_str = explode(',', $value1['tag']);
+					$tag_str = implode("','", $tag_str);
+					$tag_str = "('".$tag_str."')";
+					$sql="select id, tag_name from tag where tag_name in {$tag_str}";
+					$tag_arr = $this->db->query($sql)->result_array();
+					foreach ($tag_arr as $key => $value) {
+						# code...
+					}
+					$data['article']['0']['tag'][$value['id']]= $value['tag_name'];
 				}
 				
 				$data['article']['0']['published_at'] = $value1['published_at'];
 			}
 		}
-		$tag_info = $this->articles_model->getTagsType();
+
 		foreach ($tag_info['button_type'] as $value) {
 			$tag_name = $value['tag_name'];
 			$button_type["$tag_name"] = $value['tag_button_type'];

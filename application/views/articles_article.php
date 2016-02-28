@@ -11,11 +11,11 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
 
 
 ?>
-  <div class="col-sm-8 col-sm-offset-2" style="background-color: #FFF;margin-top:20px;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD;max-width: 96%;left:2%">
-    <div class="col-sm-12" style="padding-top:50px;">
-      <h1 class="text-center">
+  <div class="col-sm-8 col-sm-offset-2"  style="background-color: #FFF;margin-top:20px;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD;">
+    <div class="col-sm-12" style="padding-top:50px; ">
+      <h2 class="text-center">
         <?php echo $article[0]['title'];?>
-      </h1>
+      </h2>
       <center>
         <p>
           <small class="text-muted">
@@ -25,7 +25,7 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
         </p>
         <?php if(isset($article[0]['tag'])):?>
           <?php foreach ($article[0]['tag'] as $key => $value):?>
-            <?php echo anchor("/Tag/show/{$value}","<button type='button' class='btn btn-{$button_type["$value"]} btn-xs'>{$value}</button>","");?>
+            <?php echo anchor("/Tag/show/{$key}","<button type='button' class='btn btn-{$button_type["$value"]} btn-xs'>{$value}</button>","");?>
           <?php endforeach?>
         <?php endif?>
         <hr>
@@ -35,4 +35,3 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
         </article>
     </div>     
   </div>
-
