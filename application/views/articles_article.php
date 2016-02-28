@@ -12,7 +12,7 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
 
 ?>
   <div class="col-sm-8 col-sm-offset-2"  style="background-color: #FFF;margin-top:20px;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD;">
-    <div class="col-sm-12" style="padding-top:50px; ">
+    <div class="article" style="padding-top:50px;">
       <h2 class="text-center">
         <?php echo $article[0]['title'];?>
       </h2>
