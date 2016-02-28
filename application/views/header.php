@@ -17,8 +17,8 @@
         min-width: 200px;
         max-width: 980px;
         margin: 0 auto;
-        padding: 45px;
+        padding: 2px;
     }
    </style>
 </head>
-<body style="background-color: #CDE6ED">
+<body style="background-color: #EEE">

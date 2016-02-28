@@ -2,7 +2,7 @@
     <div class="col-sm-10 col-sm-offset-1 "style="padding-top:2%;">
 
       <div class="row">
-          <div class="col-xs-9">
+          <div class="col-sm-9">
             <ul class="nav nav-pills">
              <li class="<?php echo $cur_title[0];?>"><?php echo anchor("Articles/index","Home","")?></li>
              <li class="dropdown <?php echo $cur_title[1];?>">
@@ -35,7 +35,7 @@
           
         </div>
         <div class="row">
-          <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #CDE6ED, #000, #CDE6ED);">
+          <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #EEE, #000, #EEE);">
         </div>
 
       </div>

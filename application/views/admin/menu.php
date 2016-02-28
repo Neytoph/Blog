@@ -19,7 +19,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 功能 <span class="caret"></span>
               </a>
-             <ul class="dropdown-menu">
+             <ul class="dropdown-menu dropdown-menu-right">
               <li ><?php echo anchor("admin/Others/output","备份","")?></li>
              </ul>
              </li>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="row">
-          <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #CDE6ED, #000, #CDE6ED);">
+          <hr style="border: none;height: 1px;background-color: #bbb;background-image: -webkit-linear-gradient(0deg, #EEE, #000, #EEE);">
         </div>
 
       </div>

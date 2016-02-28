@@ -15,7 +15,7 @@ foreach ($data as $key => $value) {
 ?>
     
       <?php foreach ($data as $key => $value): ?>
-        <div class="col-sm-8 col-sm-offset-2" style="background-color: #FFF;margin-top:20px;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD,-5px -5px 8px #DDDDDD;">
+        <div class="col-sm-8 col-sm-offset-2 col-sm-12" style="background-color: #FFF;margin-top:20px;border-radius: 8px;box-shadow:5px 5px 8px #DDDDDD,-5px -5px 8px #DDDDDD;max-width: 96%;left:2%">
         <div class="article" style="padding-top:50px;">
           <h1 class="text-center">
             <?php echo anchor("/Articles/article/{$value['id']}","{$value['title']}","")?>
