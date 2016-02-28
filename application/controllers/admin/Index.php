@@ -60,7 +60,7 @@ class Index extends Controller {
             $this->form_validation->set_message('username_check', '用户名不能为空');
             return FALSE;
         }
-        elseif($str != 'admin'){
+        elseif($str != ''){
             $this->form_validation->set_message('username_check', '用户不存在');
             return FALSE;
         }
@@ -77,7 +77,7 @@ public function password_check($str)
             $this->form_validation->set_message('password_check', '密码不能为空');
             return FALSE;
         }
-        elseif($str != md5('admin')){
+        elseif($str != md5('')){
             $this->form_validation->set_message('password_check', '密码错误');
             return FALSE;
         }
