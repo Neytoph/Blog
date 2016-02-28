@@ -2,6 +2,24 @@
 
 > ### 基于[CI](http://codeigniter.org.cn)和[bootstrap](http://www.bootcss.com/)的个人博客系统~由neytoph完成
 
+###
+使用方法：
+
+1. 打开**`application/config/config.php`**设置网页根目录
+
+  ```php
+  $config['base_url'] = 'http://localhost/blog/';
+  ```
+2. 打开**`application/config/config.php`**配置数据库
+
+  ```php
+  'hostname' => 'localhost',
+  'username' => 'root',
+  'password' => '',
+  'database' => 'blog',
+  ```
+
+  
 ### 目前的主要功能：
 
 - [x] 1. 基本的文章编辑功能
