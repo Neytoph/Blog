@@ -18,7 +18,7 @@
   'password' => '',
   'database' => 'blog',
   ```
-3. 打开**`application/controllers/admin/Index.php`**配置数据库
+3. 打开**`application/controllers/admin/Index.php`**配置后台用户和密码
 
   ```php
   63行  elseif($str != 'username') 修改用户名
