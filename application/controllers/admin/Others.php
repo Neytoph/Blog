@@ -38,6 +38,49 @@ class Others extends CI_Controller {
         $this->load->view('admin/others_output', $data);
         $this->load->view('footer');
 	}
+
+	public function change_password()
+	{
+		$this->load->helper('form');
+		$this->load->helper('url');
+	  	$this->load->library('form_validation');
+	  	$this->load->library('session');
+	  	$this->load->database();
+        $username = $this->session->userdata('username');
+        $this->db->where('username', $username);
+      	$this->user_info = $this->db->get('user')->result_array();
+
+
+		$this->form_validation->set_rules('old_password', 'old_password', 'md5|callback_password_check');
+		$this->form_validation->set_rules('new_password', 'new_password', 'md5');
+		$this->form_validation->set_rules('new_password_conf', 'new_password_conf', 'md5|matches[new_password]');
+		$this->form_validation->set_message('matches', '两次输入不一致！');
+		$this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+
+		$data['cur_title'] = array('','','','','active');
+        
+	  if ($this->form_validation->run() == FALSE)
+	  {
+	   	$this->load->view('header');
+        $this->load->view('admin/menu', $data);
+        $this->load->view('admin/others_change_password');
+        $this->load->view('footer');
+	  }
+	  else
+	  {
+
+	  	$new_password = array('password' => md5($_POST['new_password']));
+		$this->db->where('username', $_SESSION['username']);
+		$this->db->update('user', $new_password);
+        $this->load->view('header');
+        $this->load->view('admin/menu', $data);
+        $this->load->view('admin/others_change_password_success');
+        $this->load->view('footer');
+	  
+	 }
+	}
+
 	private function getPaginationConfig(){
 		$this->load->database();
 		$this->load->helper('url');
@@ -64,4 +107,15 @@ class Others extends CI_Controller {
 		$config['next_tag_close'] = '</li>';
 		return $config;
 	}
+	public function password_check($str)
+    {
+        if (md5($str) != isset($this->user_info[0]['password'])?$this->user_info[0]['password']:0){
+            $this->form_validation->set_message('password_check', '密码错误');
+            return FALSE;
+        }
+        else
+        {   
+            return TRUE;
+        }
+    }
 }

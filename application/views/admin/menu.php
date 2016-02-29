@@ -21,6 +21,7 @@
               </a>
              <ul class="dropdown-menu dropdown-menu-right">
               <li ><?php echo anchor("admin/Others/output","备份","")?></li>
+              <li ><?php echo anchor("admin/Others/change_password","修改密码","")?></li>
              </ul>
              </li>
              <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal" style="float:right;margin-top:5px;color:#1780C7">

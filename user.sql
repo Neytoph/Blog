@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 01 月 25 日 09:24
+-- 生成日期: 2016 年 02 月 29 日 09:51
 -- 服务器版本: 5.5.20
 -- PHP 版本: 5.3.10
 
@@ -23,24 +23,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `category`
+-- 表的结构 `user`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `category` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `category_order` int(50) NOT NULL DEFAULT '1',
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- 转存表中的数据 `category`
+-- 转存表中的数据 `user`
 --
 
-INSERT INTO `category` (`id`, `category`, `category_order`) VALUES
-(1, '技术', 1),
-(2, '音乐', 2),
-(3, '生活', 3);
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'c3284d0f94606de1fd2af172aba15bf3');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

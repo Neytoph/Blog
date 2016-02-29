@@ -1,12 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Index extends Controller {
 
+class Index extends Controller {
+     public $user_info;
 	 public function __construct() {
 	  parent::__construct ();
+      
 	  $this->load->helper(array('form', 'url'));
 	  $this->load->library('session');
-    
+      
 	 }
      public function index(){
         $data['cur_title'] = array('active','','','','');
@@ -19,6 +21,10 @@ class Index extends Controller {
 	 {
 	  $this->load->helper('form');
 	  $this->load->library('form_validation');
+      $this->load->database();
+      $username = trim($this->input->post('username'));
+      $this->db->where('username', $username);
+      $this->user_info = $this->db->get('user')->result_array();
 
 	  $this->form_validation->set_rules('username', 'Username', 'trim|callback_username_check');
 	  $this->form_validation->set_rules('password', 'Password', 'md5|callback_password_check');
@@ -29,10 +35,6 @@ class Index extends Controller {
 	  }
 	  else
 	  {
-        if ($this->input->post() != false){
-        $username = trim($this->input->post('username'));
-        $password = trim($this->input->post('password'));
-        }
 	  	//当前标题（首页，文章，分类，标签，功能）
 		$userdata= array(
             'username' => $username,
@@ -45,7 +47,6 @@ class Index extends Controller {
 	 }
 
 	}
-
 
 	public function logout(){
         session_destroy();
@@ -60,7 +61,7 @@ class Index extends Controller {
             $this->form_validation->set_message('username_check', '用户名不能为空');
             return FALSE;
         }
-        elseif($str != ''){
+        elseif( $this->user_info == null ){
             $this->form_validation->set_message('username_check', '用户不存在');
             return FALSE;
         }
@@ -72,12 +73,7 @@ class Index extends Controller {
 
 public function password_check($str)
     {
-        if ($str == '')
-        {
-            $this->form_validation->set_message('password_check', '密码不能为空');
-            return FALSE;
-        }
-        elseif($str != md5('')){
+        if(md5($str) != isset($this->user_info[0]['password'])?$this->user_info[0]['password']:0){
             $this->form_validation->set_message('password_check', '密码错误');
             return FALSE;
         }
