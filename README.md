@@ -20,11 +20,11 @@
   'password' => '',
   'database' => 'blog',
   ```
-3. 打开**`application/controllers/admin/Index.php`**配置后台用户和密码
+3. 修改密码
 
   ```php
-  63行  elseif($str != 'username') 修改用户名
-  80行  elseif($str != md5('password')) 修改密码
+  默认用户名：root
+  默认密码：root
   ```
   
 ### 目前的主要功能：

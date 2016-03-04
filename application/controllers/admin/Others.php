@@ -59,7 +59,6 @@ class Others extends CI_Controller {
 
 
 		$data['cur_title'] = array('','','','','active');
-        
 	  if ($this->form_validation->run() == FALSE)
 	  {
 	   	$this->load->view('header');
@@ -73,6 +72,7 @@ class Others extends CI_Controller {
 	  	$new_password = array('password' => md5($_POST['new_password']));
 		$this->db->where('username', $_SESSION['username']);
 		$this->db->update('user', $new_password);
+
         $this->load->view('header');
         $this->load->view('admin/menu', $data);
         $this->load->view('admin/others_change_password_success');
@@ -109,6 +109,7 @@ class Others extends CI_Controller {
 	}
 	public function password_check($str)
     {
+
     	$password = isset($this->user_info[0]['password'])?$this->user_info[0]['password']:0;
         if (md5($str) != $password){
             $this->form_validation->set_message('password_check', '密码错误');
@@ -116,7 +117,8 @@ class Others extends CI_Controller {
         }
         else
         {   
-            return TRUE;
+        	$this->form_validation->set_message('password_check', '密码错误');
+            return FALSE;
         }
     }
 }
