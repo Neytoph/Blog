@@ -20,7 +20,14 @@
   'password' => '',
   'database' => 'blog',
   ```
-3. 修改密码
+  
+3. 数据表导入
+
+  ```php
+  导入文件/blog.sql
+  ```  
+  
+4. 修改密码
 
   ```php
   默认用户名：root
