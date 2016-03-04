@@ -29,6 +29,7 @@ class Index extends Controller {
 	  $this->form_validation->set_rules('username', 'Username', 'trim|callback_username_check');
 	  $this->form_validation->set_rules('password', 'Password', 'md5|callback_password_check');
 	  $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
 	  if ($this->form_validation->run() == FALSE)
 	  {
 	   $this->load->view('admin/index_login');
@@ -73,7 +74,8 @@ class Index extends Controller {
 
 public function password_check($str)
     {
-        if(md5($str) != isset($this->user_info[0]['password'])?$this->user_info[0]['password']:0){
+        $password = isset($this->user_info[0]['password'])?$this->user_info[0]['password']:0;
+        if(md5($str) != $password){
             $this->form_validation->set_message('password_check', '密码错误');
             return FALSE;
         }

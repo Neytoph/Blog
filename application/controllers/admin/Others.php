@@ -109,7 +109,8 @@ class Others extends CI_Controller {
 	}
 	public function password_check($str)
     {
-        if (md5($str) != isset($this->user_info[0]['password'])?$this->user_info[0]['password']:0){
+    	$password = isset($this->user_info[0]['password'])?$this->user_info[0]['password']:0;
+        if (md5($str) != $password){
             $this->form_validation->set_message('password_check', '密码错误');
             return FALSE;
         }
