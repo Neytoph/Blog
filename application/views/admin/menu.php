@@ -20,7 +20,7 @@
                 功能 <span class="caret"></span>
               </a>
              <ul class="dropdown-menu dropdown-menu-right">
-              <li ><?php echo anchor("admin/Others/output","备份","")?></li>
+              <li ><?php echo anchor("admin/Others/back_up","备份","")?></li>
               <li ><?php echo anchor("admin/Others/change_password","修改密码","")?></li>
              </ul>
              </li>

@@ -17,7 +17,7 @@ class Others extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function output()
+	public function back_up()
 	{
         //加载分页类库
         $this->load->library('pagination');
@@ -31,11 +31,39 @@ class Others extends CI_Controller {
 
         $this->load->model('articles_model');
         $data['data'] = $this->articles_model->getArticlesDuring($row, $config['per_page']);
-
+        $data['path'] = dirname(dirname(dirname(dirname(__FILE__)))).'\\article_backup\\';
         $data['cur_title'] = array('','','','','active');
         $this->load->view('header');
         $this->load->view('admin/menu', $data);
-        $this->load->view('admin/others_output', $data);
+        $this->load->view('admin/others_backup', $data);
+        $this->load->view('footer');
+	}
+	public function backup()
+	{
+		$this->load->helper('url');
+		$this->load->database();
+		var_dump($_POST);
+		$backup_article = $_POST['backup_article'];
+		$path = $_POST['backup_path'];
+		var_dump($backup_article);
+
+		foreach ($backup_article as $key => $value) {
+			$this->db->where('id', $key);
+      		$article = $this->db->get('articles')->result_array();
+      		var_dump($article);
+      		$str = $article[0]['title']."<\br>".$article[0]['category']."<\br>".$article[0]['content'];
+      		$file = $path.$value.'.txt';
+			$fp = fopen($file, 'w');
+			if ($fp) {
+				fwrite($fp, $str);
+				fclose($fp);
+			}
+			
+		}
+        $data['cur_title'] = array('','','','','active');
+        $this->load->view('header');
+        $this->load->view('admin/menu', $data);
+        $this->load->view('admin/others_backup_success', $data);
         $this->load->view('footer');
 	}
 
