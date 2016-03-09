@@ -17,7 +17,7 @@
         min-width: 200px;
         max-width: 980px;
         margin: 0 auto;
-        padding: 2px;
+        padding: 20px;
     }
    </style>
 </head>
