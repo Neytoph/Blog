@@ -25,7 +25,6 @@ class Index extends Controller {
       $username = trim($this->input->post('username'));
       $this->db->where('username', $username);
       $this->user_info = $this->db->get('user')->result_array();
-
 	  $this->form_validation->set_rules('username', 'Username', 'trim|callback_username_check');
 	  $this->form_validation->set_rules('password', 'Password', 'md5|callback_password_check');
 	  $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');

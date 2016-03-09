@@ -145,8 +145,7 @@ class Others extends CI_Controller {
         }
         else
         {   
-        	$this->form_validation->set_message('password_check', '密码错误');
-            return FALSE;
+            return TRUE;
         }
     }
 }
