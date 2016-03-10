@@ -42,17 +42,14 @@ class Others extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->database();
-		var_dump($_POST);
 		$backup_article = $_POST['backup_article'];
 		$path = $_POST['backup_path'];
-		var_dump($backup_article);
-
 		foreach ($backup_article as $key => $value) {
 			$this->db->where('id', $key);
       		$article = $this->db->get('articles')->result_array();
-      		var_dump($article);
-      		$str = $article[0]['title']."<\br>".$article[0]['category']."<\br>".$article[0]['content'];
+      		$str = 'title:'.$article[0]['title']."\r\ncategory:".$article[0]['category']."\r\ntag:".$article[0]['tag']."\r\npublished_at:".$article[0]['published_at']."\r\n\r\n============================\r\n\r\n".$article[0]['content'];
       		$file = $path.$value.'.txt';
+      		$file=iconv("utf-8","gb2312",$file);
 			$fp = fopen($file, 'w');
 			if ($fp) {
 				fwrite($fp, $str);
