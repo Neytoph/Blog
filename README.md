@@ -10,15 +10,15 @@
 1. 打开**`application/config/config.php`**设置网页根目录
 
   ```php
-  $config['base_url'] = 'http://localhost/blog/';
+  $config['base_url'] = 'http://your_url/blog/';
   ```
 2. 打开**`application/config/config.php`**配置数据库
 
   ```php
-  'hostname' => 'localhost',
-  'username' => 'root',
-  'password' => '',
-  'database' => 'blog',
+  'hostname' => 'your_hostname',
+  'username' => 'your_username',
+  'password' => 'your_password',
+  'database' => 'your_database_name',
   ```
   
 3. 数据表导入
@@ -40,7 +40,7 @@
 - [x] 2. markdown语法支持
 - [x] 3. 标签云
 - [x] 4. 访客统计
-- [ ] 5. 备份及上传文章功能
+- [x] 5. 备份文章功能
 - [ ] 6. 评论系统（暂定多说）
 - [ ] 7. 访客地图
 - [ ] 8. 全文搜索功能
