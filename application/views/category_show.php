@@ -3,7 +3,7 @@
     </div>
     <div class="col-sm-8" style="padding-top:20px">
     <ol class="breadcrumb">
-     <li><?php echo anchor("Category/index","分类","")?></li>
+     <li class="active">分类</li>
      <li class="active"><?php echo $cur_category[0]['category']?></li>
     </ol>
         <?php foreach ($data as $key => $value): ?>
