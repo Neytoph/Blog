@@ -34,4 +34,17 @@ $html = MarkdownExtra::defaultTransform($article[0]['content']);
           <?php echo $html; ?>
         </article>
     </div>     
+    <!-- <hr style="height:1px;border:none;border-top:3px dashed #DDD;"> -->
+    <div class="ds-thread" data-thread-key="<?php echo $article[0]['id'];?>" data-title="<?php echo $article[0]['title'];?>" data-url="<?php echo base_url("/Articles/article/{ $article[0]['id']}");?>"></div>
   </div>
+  <script type="text/javascript">
+var duoshuoQuery = {short_name:"neytoph"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
