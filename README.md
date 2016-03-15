@@ -1,6 +1,6 @@
 # Blog
 
-> ### 基于[CI](http://codeigniter.org.cn)和[bootstrap](http://www.bootcss.com/)的个人博客系统~由neytoph完成
+### 基于[CI](http://codeigniter.org.cn)和[bootstrap](http://www.bootcss.com/)的个人博客系统
 ##[DEMO](http://www.neytoph.com/Blog/)
 
 ----
@@ -34,7 +34,7 @@
   默认密码：root
   ```
   
-### 目前的主要功能：
+### 目前的主要功能和亮点：
 
 - [x] 1. 基本的文章编辑功能
 - [x] 2. markdown语法支持
