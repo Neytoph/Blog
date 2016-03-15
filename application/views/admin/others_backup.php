@@ -14,7 +14,7 @@
             <tr>
                <th class="text-center col-sm-1"><?php echo $value['id']?></th>
                <td class="col-sm-5"><?php echo $value['title']?></td>
-               <td class="text-center col-sm-2"><input type="checkbox" name="backup_article[<?php echo $value['id']?>]"value="<?php echo $value['title']?>"></td>
+               <td class="text-center col-sm-2"><input type="checkbox" name="backup_article[<?php echo $value['id']?>]"value="<?php echo $value['title']?>" checked></td>
             </tr>
          <?php endforeach ?>
       </tbody>

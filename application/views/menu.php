@@ -22,14 +22,14 @@
 
           </div>
            <div class="col-sm-3" style="float:right;margin-top:5px">
-              <div class="input-group">
-                 <input type="text" class="form-control">
+              <form class="input-group" method="post" action='<?php echo site_url('Search/show')?>'>
+                 <input type="text" class="form-control" name='pattern'>
                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
+                    <button class="btn btn-default" type="submit">
                        Go!
                     </button>
                  </span>
-              </div><!-- /input-group -->
+              </form><!-- /input-group -->
               
            </div><!-- /.col-lg-6 -->
           
