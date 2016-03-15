@@ -3,9 +3,9 @@
 ### 基于[CI](http://codeigniter.org.cn)和[bootstrap](http://www.bootcss.com/)的个人博客系统
 ##[DEMO](http://www.neytoph.com/Blog/)
 
-#### 预览:（"I need a designer" series）
+#### 预览:
 ![](https://ooo.0o0.ooo/2016/03/15/56e824595ce3e.png)
-
+###"I need a designer!"
 ----
 
 ###使用方法：
