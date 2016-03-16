@@ -17,6 +17,7 @@
              </li>
              <li class="<?php echo $cur_title[2];?>"><?php echo anchor("Tag/index","标签","")?></li>
              <li class="<?php echo $cur_title[3];?>"><?php echo anchor("About/index","关于我","")?></li>
+             <li class="<?php echo $cur_title[4];?>"><?php echo anchor("VisitorMap/index","访客地图","")?></li>
              <?php echo anchor("admin/Index/index",'<span class="glyphicon glyphicon-user" style="margin-top:12px;margin-left:5px"></span>',"")?>
              </ul>
 
