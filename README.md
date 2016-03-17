@@ -10,12 +10,7 @@
 
 ###使用方法：
 
-1. 打开**`application/config/config.php`**设置网页根目录
-
-  ```php
-  $config['base_url'] = 'http://your_url/blog/';
-  ```
-2. 打开**`application/config/config.php`**配置数据库
+1. 打开**`application/config/config.php`**配置数据库
 
   ```php
   'hostname' => 'your_hostname',
@@ -24,13 +19,13 @@
   'database' => 'your_database_name',
   ```
   
-3. 数据表导入
+2. 数据表导入
 
   ```php
   导入文件/blog.sql
   ```  
   
-4. 修改密码
+3. 修改密码
 
   ```php
   默认用户名：root
