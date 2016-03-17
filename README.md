@@ -10,7 +10,9 @@
 
 ###使用方法：
 
-1. 打开**`application/config/config.php`**配置数据库
+1. 打开**`application/config/database.php`**
+
+   配置数据库
 
   ```php
   'hostname' => 'your_hostname',
@@ -19,13 +21,21 @@
   'database' => 'your_database_name',
   ```
   
-2. 数据表导入
+2. 打开**`application/config/config.php`**
+
+  配置缓存位置
+  
+  ```php
+  $config['sess_save_path'] = 'sess_save_path';
+  ```
+  
+3. 数据表导入
 
   ```php
   导入文件/blog.sql
   ```  
   
-3. 修改密码
+4. 修改密码
 
   ```php
   默认用户名：root
