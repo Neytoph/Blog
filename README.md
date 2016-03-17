@@ -26,7 +26,7 @@
   配置缓存位置
   
   ```php
-  $config['sess_save_path'] = 'sess_save_path';
+  $config['sess_save_path'] = 'your_sess_save_path';
   ```
   
 3. 数据表导入
