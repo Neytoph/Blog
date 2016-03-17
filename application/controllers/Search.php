@@ -44,6 +44,8 @@ class Search extends CI_Controller {
         $data['show_arr'] = $show_arr;
 		//当前标题（首页，分类，标签，关于我）
 		$data['cur_title'] = array('active','','','');
+		$this->load->model('category_model');
+		$data['all_category'] =  $this->category_model->getAllCategory();
 
         if (!empty($data['show_arr'])) {
             $this->load->view('header');

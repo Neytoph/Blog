@@ -27,7 +27,7 @@ class Tag extends CI_Controller {
 				$button_size = 'btn-xs';
 			}elseif($value['article_num']<=2){
 				$button_size = '';
-			}elseif($value['article_num']<=3){
+			}else{
 				$button_size = 'btn-lg';
 			}
 			$data['data'][] =array(
