@@ -21,21 +21,13 @@
   'database' => 'your_database_name',
   ```
   
-2. 打开**`application/config/config.php`**
-
-  配置缓存位置
-  
-  ```php
-  $config['sess_save_path'] = 'your_sess_save_path';
-  ```
-  
-3. 数据表导入
+2. 数据表导入
 
   ```php
   导入文件/blog.sql
   ```  
   
-4. 修改密码
+3. 修改密码
 
   ```php
   默认用户名：root
