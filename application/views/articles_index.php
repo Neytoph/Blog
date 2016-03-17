@@ -8,7 +8,7 @@ use \Michelf\MarkdownExtra;
 
 # Read file and pass content through the Markdown parser
 foreach ($data as $key => $value) {
-  $data[$key]['content'] = MarkdownExtra::defaultTransform(substr($value['content'], 0, 525));
+  $data[$key]['content'] = MarkdownExtra::defaultTransform(substr($value['content'], 0, 500));
 }
 
 
