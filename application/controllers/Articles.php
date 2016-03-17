@@ -69,7 +69,6 @@ class Articles extends CI_Controller {
 				$data['article']['0']['category'] = $value1['category'];
 				$data['article']['0']['pv'] = $value1['pv'];
 				if ($value1['tag'] != ''){
-					var_dump($value1['tag']);
 					$tag_str = explode(',', $value1['tag']);
 					$tag_str = implode("','", $tag_str);
 					$tag_str = "('".$tag_str."')";
@@ -90,7 +89,6 @@ class Articles extends CI_Controller {
 		$data['button_type'] = $button_type;
 		$this->load->model('category_model');
 		$data['all_category'] =  $this->category_model->getAllCategory();
-		var_dump($data['article']);
 		//当前标题（首页，分类，标签，关于我）
 		$data['cur_title'] = array('active','','','');
 		$this->load->view('header');
