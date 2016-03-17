@@ -7,7 +7,7 @@ class About extends CI_Controller {
         $this->load->model('category_model');
         $data['all_category'] =  $this->category_model->getAllCategory();
 
-        $data['cur_title'] = array('','','','active','');
+        $data['cur_title'] = array('','','','active');
         $this->load->view('header');
         $this->load->view('menu',$data);
         $this->load->view('about');
