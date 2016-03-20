@@ -43,7 +43,6 @@ class Articles extends CI_Controller {
 	}
 	public function article($id)
 	{	
-		echo md5('a');
 		$this->load->database();
 		//统计文章访问数
 		$this->load->library('session');
