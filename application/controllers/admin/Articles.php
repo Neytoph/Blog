@@ -43,15 +43,14 @@ class Articles extends Controller {
         $this->load->database();
 
         $data['cur_title'] = array('','active','','','');
-
-
         $data['data'] = array(
                 'id' => $_POST['id'],
                 'title' => $_POST['title'],
                 'content' => $_POST['content'],
                 'published_at' => $_POST['published_at'],
                 'category' => $_POST['category'],
-                'tag' => $_POST['tag'],                
+                'tag' => $_POST['tag'],  
+                'pv' => $_POST['pv']              
             );
         //获取表中该文章相关的标签
         $this->load->model('tag_model');

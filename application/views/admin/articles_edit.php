@@ -4,6 +4,7 @@
       <div class="form-group">
         <label for="name">标题</label>
         <input class="sr-only" name="id" value="<?php echo isset($article['0']['id'])?$article['0']['id']:0?>">
+        <input class="sr-only" name="pv" value="<?php echo isset($article['0']['pv'])?$article['0']['pv']:1?>">
         <input type="text" class="form-control" id="name" name="title"
            placeholder="请输入标题" value="<?php if(isset($article['0']['title'])) echo $article['0']['title'];?>" required>
       </div>
