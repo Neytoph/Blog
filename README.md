@@ -1,6 +1,6 @@
 # Blog
 
-### 基于[CI](http://codeigniter.org.cn)和[bootstrap](http://www.bootcss.com/)的个人博客系统
+### 基于[CI](http://codeigniter.org.cn)和[bootstrap](http://www.bootcss.com/)的个人博客系统，欢迎Star~
 ##[DEMO](http://www.neytoph.com)
 
 #### 预览:
